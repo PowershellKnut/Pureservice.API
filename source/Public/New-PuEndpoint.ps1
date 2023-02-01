@@ -1,9 +1,9 @@
 function New-PuEndpoint {
     param (
-        [string]$endpointPath = "$env:USERPROFILE\.creds\Pureservice\pureserviceEndpoint.xml"
+        [string]$endpointPath = "$env:USERPROFILE\.creds\Pureservice\PureserviceEndpoint.xml"
     )
 
-    $pureserviceUrl = Read-Host "Enter pureservice url"
+    $pureserviceUrl = Read-Host "Enter Pureservice url"
     $endpoint = "$pureserviceUrl/agent/api"
 
     #Create parent folders of the access token file 
