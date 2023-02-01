@@ -1,6 +1,6 @@
 function Get-PuEndpoint {
     param (
-        [string]$endpointPath = "$env:USERPROFILE\.creds\Pureservice\pureserviceEndpoint.xml"
+        [string]$endpointPath = "$env:USERPROFILE\.creds\Pureservice\PureserviceEndpoint.xml"
     )
 
     if (!(Test-Path $endpointPath)) {
