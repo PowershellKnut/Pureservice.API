@@ -1,5 +1,5 @@
 function Get-PuTeams {
-    $splat = @{
+    $Splat = @{
         "Method" = "GET"
         "Uri" = "$(Get-PuEndpoint)/team"
         "Headers" = @{
@@ -7,5 +7,6 @@ function Get-PuTeams {
             "Accept" = "application/vnd.api+json"
         }
     }
-    Invoke-RestMethod @splat
+    $Result = Invoke-RestMethod @Splat
+    $Result.teams
 }

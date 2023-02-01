@@ -1,5 +1,5 @@
 function Get-PuStatuses {
-    $splat = @{
+    $Splat = @{
         "Method" = "GET"
         "Uri" = "$(Get-PuEndpoint)/status"
         "Headers" = @{
@@ -7,5 +7,6 @@ function Get-PuStatuses {
             "Accept" = "application/vnd.api+json"
         }
     }
-    Invoke-RestMethod @splat
+    $Result = Invoke-RestMethod @Splat
+    $Result.statuses
 }

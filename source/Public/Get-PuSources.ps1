@@ -1,9 +1,9 @@
 function Get-PuSources {
     param (
-        [Parameter(Mandatory)][ValidateSet("ticket","change")][string]$type
+        [Parameter(Mandatory)][ValidateSet("Ticket","Change")][string]$Type
     )
     
-    $splat = @{
+    $Splat = @{
         "Method" = "GET"
         "Uri" = "$(Get-PuEndpoint)/source/"
         "Headers" = @{
@@ -11,8 +11,9 @@ function Get-PuSources {
             "Accept" = "application/vnd.api+json"
         }
         "Body" = @{
-            "filter" = "requestType.Key == `"$type`""
+            "filter" = "requestType.Key == `"$Type`""
         }
     }
-    Invoke-RestMethod @splat
+    $Result = Invoke-RestMethod @Splat
+    $Result.sources
 }

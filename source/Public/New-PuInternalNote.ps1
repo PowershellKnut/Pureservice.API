@@ -5,24 +5,14 @@ function New-PuInternalNote {
         [Parameter(Mandatory)][int]$ticketId, 
         [Parameter(Mandatory)][string]$text
     )
-    
-    $splat = @{
-        "Method" = "POST"
-        "Uri" = "$(Get-PuEndpoint)/communication"
-        "Headers" = @{
-            "X-Authorization-Key" = Get-PuAccessToken
-            "Content-Type" = "application/vnd.api+json"
+
+    process {
+        $splat = @{
+            "text" = $text
+            "type" = (Get-PuCommunicationTypeList).where({$_.name -eq "Note"}).id
+            "direction" = (Get-PuCommunicationDirectionList).where({$_.name -eq "None"}).id
+            "ticket" = $ticketId
         }
-        "Body" = @{
-            "communications" = @(
-                @{
-                    "text" = $text
-                    "type" = 1
-                    "direction" = 3
-                    "ticketId" = $ticketId
-                }
-            )
-        } | ConvertTo-Json
+        New-PuCommunication @splat
     }
-    Invoke-RestMethod @splat
 }

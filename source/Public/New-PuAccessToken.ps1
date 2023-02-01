@@ -1,9 +1,9 @@
 function New-PuAccessToken {
     param (
-        [string]$accessTokenPath = "$env:USERPROFILE\.creds\Pureservice\pureserviceAccessToken.xml"
+        [string]$accessTokenPath = "$env:USERPROFILE\.creds\Pureservice\PureserviceAccessToken.xml"
     )
 
-    $apiKey = Read-Host "Enter API key" -AsSecureString
+    $apiKey = Read-Host "Enter Pureservice API key" -AsSecureString
 
     #Create parent folders of the access token file
     $accessTokenDir = $accessTokenPath.Substring(0, $accessTokenPath.lastIndexOf('\'))

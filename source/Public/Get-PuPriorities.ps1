@@ -1,5 +1,5 @@
 function Get-PuPriorities {
-    $splat = @{
+    $Splat = @{
         "Method" = "GET"
         "Uri" = "$(Get-PuEndpoint)/priority"
         "Headers" = @{
@@ -7,5 +7,6 @@ function Get-PuPriorities {
             "Accept" = "application/vnd.api+json"
         }
     }
-    Invoke-RestMethod @splat
+    $Result = Invoke-RestMethod @splat
+    $Result.priorities
 }
