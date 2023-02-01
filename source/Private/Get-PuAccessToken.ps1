@@ -1,6 +1,6 @@
 function Get-PuAccessToken {
     param (
-        [string]$accessTokenPath = "$env:USERPROFILE\.creds\Pureservice\pureserviceAccessToken.xml"
+        [string]$accessTokenPath = "$env:USERPROFILE\.creds\Pureservice\PureserviceAccessToken.xml"
     )
 
     if (!(Test-Path $accessTokenPath)) {
